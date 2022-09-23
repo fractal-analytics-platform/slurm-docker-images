@@ -14,10 +14,6 @@ RUN echo "#!/bin/bash" > /home/entrypoint.sh
 RUN echo sudo ssh-keygen -A >> /home/entrypoint.sh
 RUN echo sudo service ssh start >> /home/entrypoint.sh
 
-# Add user to slurm
-RUN echo "sacctmgr create account name=test0" >> /home/entrypoint.sh
-RUN echo "sacctmgr create user test0 account=test0" >> /home/entrypoint.sh
-
 RUN cat /etc/slurm-llnl/docker-entrypoint.sh >> /home/entrypoint.sh
 RUN chmod +x /home/entrypoint.sh
 
