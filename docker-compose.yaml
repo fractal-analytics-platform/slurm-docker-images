@@ -2,26 +2,12 @@ version: '3'
 
 services:
 
-  fractalserver:
-        image: fractal-server:0.2.1
-        hostname: fractalserver
-        user: fractal
-        volumes:
-         - </path/to/fractal_configs>:/home/fractal
-
-        ports:
-         - 8000:8000
-
   slurmmaster:
         image: slurm-docker-master:19.05.1
         hostname: slurmmaster
         user: admin
         volumes:
          - /tmp/slurm_share:/tmp/slurm_share:rw
-         - type: bind
-           source: </path/to/custom/sudoers>
-           target: /etc/sudoers
-           read_only: true
 
         environment:
                 - SLURM_CPUS_ON_NODE=1
