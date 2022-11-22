@@ -7,7 +7,7 @@ services:
         hostname: slurmmaster
         user: admin
         volumes:
-         - /tmp/slurm_share:/tmp/slurm_share:rw
+          - /tmp:/tmp:rw
 
         environment:
                 - SLURM_CPUS_ON_NODE=1
@@ -21,7 +21,7 @@ services:
         hostname: slurmnode1
         user: admin
         volumes:
-          - /tmp/slurm_share:/tmp/slurm_share:rw
+          - /tmp:/tmp:rw
         environment:
                 - SLURM_NODENAME=slurmnode1
                 - SLURM_CPUS_ON_NODE=1
